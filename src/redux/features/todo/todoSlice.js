@@ -10,8 +10,8 @@ export const todoSlice = createSlice({
   reducers: {
     addTodo: (state, action) => {
       const todo = action.payload.id
-        ? action.payload // If a full todo object is provided (e.g., from localStorage)
-        : { id: nanoid(), text: action.payload }; // If just text is provided
+        ? action.payload
+        : { id: nanoid(), text: action.payload }; 
       state.todos.push(todo);
     },
     removeTodo: (state, action) => {
