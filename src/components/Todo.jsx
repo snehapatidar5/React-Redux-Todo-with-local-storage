@@ -32,24 +32,31 @@ function Todos() {
 
   return (
     <>
-      <div>Todos</div>
-      <ul className="list-none">
+    <div className='bg-[#D5CCFF]  w-[60%] rounded-xl mx-auto mt-[50px] md:p-8'>
+      <div className='xs:text-center md:text-left font-semibold text-2xl' >To-Do List</div>
+      <ul className="list-none ">
         {todos.map((todo) => (
           <li
-            className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
+            className="mt-4 md:flex md:justify-between bg-[#F4F2FF]  py-2 rounded w-full"
             key={todo.id}
           >
+          <div className='px-2 '>
             {isEditing === todo.id ? (
-              <input
-                value={editText}
+              <input 
+                value={editText} 
                 onChange={(e) => setEditText(e.target.value)}
-                className="bg-gray-700 text-white px-2 py-1 rounded"
+                className="bg-[#D5CCFF] text-black xs:w-[50%] md:w-full px-2 py-1 rounded focus:outline-none" 
               />
             ) : (
-              <div className="text-white">{todo.text}</div>
+             
+              <div className="text-black p-4 ">
+        
+              {todo.text}
+              </div>
             )}
+            </div>
 
-            <div className="flex justify-between items-center w-[200px]">
+            <div className="  flex flex-col md:flex md:flex-row justify-center items-center gap-4 w-[100%] md:w-[40%] mt-4 md:mt-0" >
               {isEditing === todo.id ? (
                 <button
                   onClick={() => handleUpdate(todo.id)}
@@ -89,6 +96,7 @@ function Todos() {
           </li>
         ))}
       </ul>
+      </div>
     </>
   );
 }
